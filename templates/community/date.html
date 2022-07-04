@@ -1,0 +1,37 @@
+{% extends 'community/base.html'%}
+{% load static %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" herf="{% static 'css/style.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+<!-- Bootstrap JS -->
+    <script src="{% static 'css/bootstrap.min.js' %}"></script>
+    <a href="/community/{{ question.id }}/">{{ question.subject }}</a>
+</head>
+<body>
+        {% block content %}
+
+    <form autocomplete="on" method="post" >
+        {% csrf_token %}
+
+<!-- 네비게이션바 -->
+
+
+            출발날짜 <input type='date' name='date'/>&nbsp;&nbsp;
+            마지막날 <input type="date" name="date2"/><br/>
+            시작시간 <input type="time" name="time"><br>
+            지역선택
+            <select name="local">
+             <option value="부산">부산</option>
+            </select>
+             <input type="submit" value="완료"/>
+              {{ form.as_p }}
+    </form>
+    {% endblock %}
+
+</body>
+</html>
